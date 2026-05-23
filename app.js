@@ -154,11 +154,16 @@
         let styleClass = "pc-mummysss";
         if (proj.id === "medisync") styleClass = "pc-medisync";
         if (proj.id === "campusbus") styleClass = "pc-campusbus";
+        if (proj.id === "fleetmanagement") styleClass = "pc-fleetmanagement";
   
         // Live link button if present
-        const liveBtnHtml = proj.liveDemo 
-          ? `<a href="${proj.liveDemo}" target="_blank" class="p-link-node" title="View Live Deployment"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
-          : "";
+        let liveBtnHtml = "";
+        if (proj.liveDemo) {
+          const isFigma = proj.liveDemo.includes("figma.com");
+          const iconClass = isFigma ? "fa-brands fa-figma" : "fa-solid fa-arrow-up-right-from-square";
+          const titleText = isFigma ? "View Figma Workspace Design" : "View Live Deployment";
+          liveBtnHtml = `<a href="${proj.liveDemo}" target="_blank" class="p-link-node" title="${titleText}"><i class="${iconClass}"></i></a>`;
+        }
   
         return `
           <div class="project-showcase-card card frosted-glass" id="project-card-${proj.id}">
@@ -533,10 +538,14 @@
       // Footer live demonstration logic
       const footerActions = document.getElementById("modalFooterActions");
       if (proj.liveDemo) {
+        const isFigma = proj.liveDemo.includes("figma.com");
+        const btnLabel = isFigma ? "Launch Figma Design Workspace" : "Launch Live Deployment";
+        const iconClass = isFigma ? "fa-brands fa-figma" : "fa-solid fa-arrow-up-right-from-square";
+        const gradientClass = isFigma ? "bg-gradient-indigo" : "bg-gradient-teal";
         footerActions.innerHTML = `
-          <a href="${proj.liveDemo}" target="_blank" class="btn btn-primary bg-gradient-teal">
-            <span>Launch Live Deployment</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <a href="${proj.liveDemo}" target="_blank" class="btn btn-primary ${gradientClass}">
+            <span>${btnLabel}</span>
+            <i class="${iconClass}"></i>
           </a>
         `;
       } else {

@@ -213,6 +213,39 @@ const PortfolioConfig = {
           ]
         }
       }
+    },
+    {
+      id: "fleetmanagement",
+      title: "FleetFlow",
+      subTitle: "Fleet Operations & Delivery Tracking",
+      tag: "Figma / UI/UX Design / System",
+      metrics: {
+        efficiency: "+22% Route Savings",
+        dispatch: "Sub-Second Dispatch",
+        components: "40+ Figma Tokens"
+      },
+      bullets: [
+        "Designed an end-to-end interactive Figma high-fidelity prototype mapping driver dispatch boards and fleet status dashboards.",
+        "Standardized design token assets and reusable UI components, accelerating frontend developer handoff workflows.",
+        "Formulated high-contrast mobile driver interfaces optimized for high visibility and swift parcel delivery scan workflows."
+      ],
+      tags: ["Figma UI/UX", "High-Fi Prototype", "Design Token System", "Driver Companion UI", "User Flow Maps", "Wireframes"],
+      liveDemo: "https://www.figma.com/design/eXPyzeA5RPA0zaZvHLRGDO/Fleet-Management---Delivery-Tracking?node-id=0-1&p=f&t=z47clMuiE3qmP3W0-0",
+      details: {
+        problem: "Fleet logistics managers routinely manage complex, disjointed scheduling dashboards while delivery drivers require highly legible, non-distracting screen layouts to log real-time delivery statuses on the road. The goal was to build a cohesive, design-token-driven Figma prototype that merges deep operations monitoring with driver legibility.",
+        architecture: {
+          nodes: [
+            { id: "fe", label: "Dispatcher Desktop Hub", desc: "Comprehensive dispatch management tracking vehicles, driver rosters, and delivery milestones." },
+            { id: "tokens", label: "Figma Token System", desc: "Re-usable design system enforcing unified font typography scales, vehicle states, and HSL colors." },
+            { id: "driver", label: "Driver Mobile App", desc: "High-contrast mobile utility allowing delivery scans, navigation support, and direct dispatch notifications." }
+          ],
+          connections: [
+            { from: "fe", to: "driver", label: "Real-Time Sync" },
+            { from: "driver", to: "tokens", label: "Component Sync" },
+            { from: "fe", to: "tokens", label: "Grid Component Sync" }
+          ]
+        }
+      }
     }
   ],
 
