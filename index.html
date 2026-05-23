@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abishek A - Software Engineer & UI/UX Designer Portfolio. B.Tech Computer Science student specializing in React, Spring Boot, FastAPI, and professional product design.">
+  <meta name="keywords" content="Abishek A, Software Engineer, UI/UX Designer, Spring Boot, React, FastAPI, Jain University, Portfolio, Web Developer">
+  <meta name="author" content="Abishek A">
+  <meta property="og:title" content="Abishek A — Portfolio">
+  <meta property="og:description" content="Software Engineer & UI/UX Designer creating highly polished, responsive, and secure digital products.">
+  <meta property="og:type" content="website">
+  <title>Abishek A — Portfolio</title>
+  
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+  <!-- Glowing Background Atmosphere -->
+  <div class="glow-orb glow-indigo"></div>
+  <div class="glow-orb glow-teal"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+  <!-- Floating Sticky Navigation -->
+  <header id="mainHeader">
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">
+        <span class="brand-brackets">&lt;</span>
+        <span class="brand-text">Abishek A</span>
+        <span class="brand-brackets">/&gt;</span>
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i><span>About</span></a>
+        <a href="#skills" class="nav-link"><i class="fa-solid fa-sliders"></i><span>Skills</span></a>
+        <a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a>
+        <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i><span>Projects</span></a>
+        <a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i><span>Contact</span></a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="nav-btn icon-btn" title="Toggle Theme" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="resumeBtn" class="nav-btn cta-btn" title="Download Resume">
+          <i class="fa-solid fa-download"></i><span>Resume</span>
+        </button>
+        <button id="mobileMenuToggle" class="nav-btn icon-btn mobile-menu-btn" title="Toggle Menu" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+      <div class="section-container hero-grid">
+        <div class="hero-content">
+          <div class="badge-container">
+            <span class="status-badge">
+              <span class="status-dot"></span>
+              Open for Internships
+            </span>
+          </div>
+          <h1 class="hero-main-title">
+            Where <span class="accent-indigo">Logic</span> Meets <br>
+            <span class="accent-teal">Aesthetics</span>
+          </h1>
+          <h2 class="hero-tagline">
+            I am Abishek A, specializing in <span id="typingText" class="dynamic-typed">Software Engineering</span><span class="cursor-blink">|</span>
+          </h2>
+          <p class="hero-desc">
+            A computer science engineer dedicated to building scalable backends, user-centric interfaces, and integrating intelligent AI classifiers. Bridging the gap between high-performance systems and seamless UI/UX design.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary bg-gradient-indigo">Explore Projects</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
+          <div class="hero-shortcuts">
+            <a href="https://github.com/23btrct005-coder" target="_blank" class="shortcut-link"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+            <a href="https://www.linkedin.com/in/abishek-a-768582292/" target="_blank" class="shortcut-link"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+            <a href="mailto:abhi0809abhishek@gmail.com" class="shortcut-link"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-interactive-container" id="visualContainer">
+            <div class="core-node">
+              <span class="node-label">SYS_CORE</span>
+              <div class="node-rings">
+                <div class="ring"></div>
+                <div class="ring"></div>
+              </div>
+            </div>
+            
+            <svg class="visual-waves" viewBox="0 0 400 400" preserveAspectRatio="none">
+              <!-- Animated mesh paths will be manipulated by JS -->
+              <path id="wave1" d="M 50,200 Q 125,120 200,200 T 350,200" fill="none" stroke="rgba(99, 102, 241, 0.4)" stroke-width="2" />
+              <path id="wave2" d="M 50,200 Q 125,280 200,200 T 350,200" fill="none" stroke="rgba(20, 184, 166, 0.4)" stroke-width="2" />
+              <line id="joint1" x1="125" y1="160" x2="125" y2="240" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3" />
+              <line id="joint2" x1="275" y1="160" x2="275" y2="240" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3" />
+            </svg>
+            
+            <div class="floating-badge fb-left bg-blur-indigo">
+              <i class="fa-brands fa-java"></i>
+              <span>Java 17</span>
+            </div>
+            <div class="floating-badge fb-right bg-blur-teal">
+              <i class="fa-brands fa-figma"></i>
+              <span>UI/UX Figma</span>
+            </div>
+            <div class="floating-badge fb-bottom bg-blur-emerald">
+              <i class="fa-brands fa-react"></i>
+              <span>React 18</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <div class="section-title-wrap text-center">
+          <h2 class="section-title">The Blueprint</h2>
+          <p class="section-subtitle">A synthesis of academic training, hands-on intern work, and a drive to learn</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card card frosted-glass">
+            <h3 class="card-title"><i class="fa-solid fa-id-card accent-indigo"></i> Professional Summary</h3>
+            <div id="aboutBio" class="card-content bio-text">
+              <!-- Loaded dynamically from portfolio-config.js -->
+            </div>
+            
+            <div class="education-block">
+              <h4 class="sub-heading"><i class="fa-solid fa-graduation-cap accent-teal"></i> Education</h4>
+              <div class="edu-timeline" id="aboutEdu">
+                <!-- Loaded dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <div class="about-highlights card frosted-glass">
+            <h3 class="card-title"><i class="fa-solid fa-bolt accent-teal"></i> Executive Highlights</h3>
+            <ul class="highlights-list" id="aboutHighlights">
+              <!-- Loaded dynamically -->
+            </ul>
+            
+            <div class="metrics-grid">
+              <div class="metric-card bg-blur-indigo">
+                <span class="metric-value" data-target="20">+20%</span>
+                <span class="metric-label">AI Engagement</span>
+              </div>
+              <div class="metric-card bg-blur-teal">
+                <span class="metric-value" data-target="15">-15%</span>
+                <span class="metric-label">Design Cycles</span>
+              </div>
+              <div class="metric-card bg-blur-indigo">
+                <span class="metric-value">95+</span>
+                <span class="metric-label">Lighthouse Score</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN PLAYGROUND SECTION -->
+    <section class="playground-section">
+      <div class="section-container">
+        <div class="section-title-wrap text-center">
+          <h2 class="section-title">UI/UX Design Playground</h2>
+          <p class="section-subtitle">Experience how a professional high-fidelity Figma mockup translates into production code</p>
+        </div>
+
+        <div class="playground-layout frosted-glass">
+          <div class="playground-controls">
+            <button class="playground-tab active" data-state="wireframe">
+              <i class="fa-solid fa-pen-ruler"></i><span>1. Wireframe</span>
+            </button>
+            <button class="playground-tab" data-state="prototype">
+              <i class="fa-solid fa-palette"></i><span>2. High-Fi Prototype</span>
+            </button>
+            <button class="playground-tab" data-state="code">
+              <i class="fa-solid fa-code"></i><span>3. Production Code</span>
+            </button>
+          </div>
+
+          <div class="playground-display" id="playgroundDisplay">
+            <!-- Dynamic State 1: Wireframe -->
+            <div class="playground-state state-active" id="state-wireframe">
+              <div class="wireframe-mockup">
+                <div class="wf-header"></div>
+                <div class="wf-hero-circle"></div>
+                <div class="wf-line text-long"></div>
+                <div class="wf-line text-medium"></div>
+                <div class="wf-button-row">
+                  <div class="wf-btn"></div>
+                  <div class="wf-btn"></div>
+                </div>
+                <span class="wf-tag">FIGMA BLUEPRINT</span>
+              </div>
+            </div>
+
+            <!-- Dynamic State 2: High-Fi -->
+            <div class="playground-state" id="state-prototype">
+              <div class="prototype-mockup">
+                <div class="proto-card">
+                  <div class="proto-badge">Premium AI Engine</div>
+                  <h4 class="proto-title">MediSync Diagnostic Classification</h4>
+                  <p class="proto-desc">Automated clinical analysis leveraging dense neural systems.</p>
+                  <div class="proto-buttons">
+                    <button class="proto-btn active">Launch Diagnosis</button>
+                    <button class="proto-btn"><i class="fa-regular fa-bookmark"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic State 3: Code -->
+            <div class="playground-state" id="state-code">
+              <pre class="code-mockup"><code class="language-jsx">const MediSyncCard = ({ classification }) => {
+  return (
+    &lt;div className="bg-slate-900 border border-teal-500/20 rounded-xl p-6"&gt;
+      &lt;span className="text-teal-400 font-bold"&gt;Premium AI Engine&lt;/span&gt;
+      &lt;h4 className="text-white text-xl mt-2"&gt;MediSync Diagnosis&lt;/h4&gt;
+      &lt;p className="text-slate-400"&gt;{classification.desc}&lt;/p&gt;
+      &lt;button className="bg-teal-500 hover:bg-teal-600 transition"&gt;
+        Launch
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX SECTION -->
+    <section id="skills" class="skills-section">
+      <div class="section-container">
+        <div class="section-title-wrap text-center">
+          <h2 class="section-title">The Skills Matrix</h2>
+          <p class="section-subtitle">Proficiencies classified across primary technical domains</p>
+        </div>
+
+        <div class="skills-categories-tabs" id="skillsTabs">
+          <button class="skills-tab active" data-category="design"><i class="fa-solid fa-palette"></i><span>UI/UX Design</span></button>
+          <button class="skills-tab" data-category="frontend"><i class="fa-solid fa-laptop-code"></i><span>Frontend Dev</span></button>
+          <button class="skills-tab" data-category="backend"><i class="fa-solid fa-server"></i><span>Backend & Data</span></button>
+          <button class="skills-tab" data-category="tools"><i class="fa-solid fa-toolbox"></i><span>Tools & Methods</span></button>
+        </div>
+
+        <div class="skills-grid frosted-glass" id="skillsContainer">
+          <!-- Dynamically populated from script -->
+        </div>
+
+        <div class="languages-wrap">
+          <h3 class="languages-title">Speech & Communication</h3>
+          <div class="languages-badges" id="languagesContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="experience-section">
+      <div class="section-container">
+        <div class="section-title-wrap text-center">
+          <h2 class="section-title">Experience & Internships</h2>
+          <p class="section-subtitle">A record of roles in professional and academic environments</p>
+        </div>
+
+        <div class="timeline-container" id="experienceTimeline">
+          <!-- Loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects-section">
+      <div class="section-container">
+        <div class="section-title-wrap text-center">
+          <h2 class="section-title">Featured Engineering Projects</h2>
+          <p class="section-subtitle">Deep technical systems built for real-world impact and usability</p>
+        </div>
+
+        <div class="projects-grid-layout" id="projectsGrid">
+          <!-- Dynamic Project Cards loaded from config -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <div class="section-title-wrap text-center">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Let's discuss professional opportunities, custom design, or engineering builds</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card card frosted-glass">
+            <h3 class="card-title">Send a Direct Message</h3>
+            
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <input type="text" id="nameInput" required class="form-input" placeholder=" ">
+                <label for="nameInput" class="form-label">Full Name</label>
+                <span class="input-focus-line"></span>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" id="emailInput" required class="form-input" placeholder=" ">
+                <label for="emailInput" class="form-label">Email Address</label>
+                <span class="input-focus-line"></span>
+              </div>
+              
+              <div class="form-group">
+                <textarea id="messageInput" required class="form-input" rows="5" placeholder=" "></textarea>
+                <label for="messageInput" class="form-label">Your Message</label>
+                <span class="input-focus-line"></span>
+              </div>
+              
+              <button type="submit" class="btn btn-primary bg-gradient-teal w-full" id="submitBtn">
+                <span class="btn-text">Transmit Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+            
+            <!-- Success Modal overlay inside form -->
+            <div class="form-success-overlay" id="formSuccessOverlay">
+              <div class="success-content">
+                <div class="success-icon-wrap">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h4>Message Transmitted!</h4>
+                <p>Thank you. I have received your request and will follow up shortly at your email.</p>
+                <button class="btn btn-secondary btn-sm" id="resetFormBtn">Send Another</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info card frosted-glass">
+            <h3 class="card-title">Coordinates & Connections</h3>
+            <p class="info-desc">Feel free to connect directly through any of the channels below. I respond rapidly.</p>
+            
+            <div class="info-channels">
+              <div class="channel-item">
+                <div class="channel-icon bg-indigo"><i class="fa-solid fa-envelope"></i></div>
+                <div class="channel-details">
+                  <span class="channel-title">Direct Email</span>
+                  <a href="mailto:abhi0809abhishek@gmail.com" class="channel-link" id="configEmail">abhi0809abhishek@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="channel-item">
+                <div class="channel-icon bg-teal"><i class="fa-solid fa-phone"></i></div>
+                <div class="channel-details">
+                  <span class="channel-title">Phone & WhatsApp</span>
+                  <a href="tel:+917892596421" class="channel-link" id="configPhone">+91 78925 96421</a>
+                </div>
+              </div>
+              
+              <div class="channel-item">
+                <div class="channel-icon bg-indigo"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="channel-details">
+                  <span class="channel-title">Current Location</span>
+                  <span class="channel-link" id="configLocation">Bengaluru, India</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-connect-box">
+              <h4 class="sub-heading">Social Channels</h4>
+              <div class="social-row">
+                <a href="https://www.linkedin.com/in/abishek-a-768582292/" target="_blank" class="social-circle linkedin-btn" title="Connect on LinkedIn">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/23btrct005-coder" target="_blank" class="social-circle github-btn" title="Follow on GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p class="copyright">© <span id="currentYear"></span> Abishek A. Handcrafted with passion, logic, & design.</p>
+      <div class="footer-meta">
+        <span>Active Campus: Jain University B.Tech CSE</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- IMMERSIVE CASE STUDY MODAL -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-wrapper frosted-glass">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-tag-wrap" id="modalTag">React App</div>
+        <h2 class="modal-title" id="modalTitle">MediSync</h2>
+        <p class="modal-subtitle" id="modalSubTitle">Clinical Intelligence Platform</p>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3><i class="fa-solid fa-compass accent-indigo"></i> Executive Overview & Problem Statement</h3>
+          <p id="modalProblemText"></p>
+        </div>
+
+        <div class="modal-section">
+          <h3><i class="fa-solid fa-diagram-project accent-teal"></i> System Architecture & Pipeline</h3>
+          <div class="architecture-visualizer" id="modalArchitecture">
+            <!-- Dynamic SVG Node Graph generated by JS -->
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3><i class="fa-solid fa-list-check accent-indigo"></i> Key Implementation Deliverables</h3>
+          <ul class="modal-bullets-list" id="modalBullets">
+            <!-- Dynamic bullets -->
+          </ul>
+        </div>
+      </div>
+      
+      <div class="modal-footer" id="modalFooterActions">
+        <!-- Live demo button populated dynamically if available -->
+      </div>
+    </div>
+  </div>
+
+  <!-- External config first, then main application script -->
+  <script src="portfolio-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
