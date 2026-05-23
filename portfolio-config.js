@@ -133,7 +133,7 @@ const PortfolioConfig = {
         "Designed and developed a responsive, high-performance UI using React 18, TailwindCSS, and Framer Motion, achieving a 95+ performance score on Lighthouse."
       ],
       tags: ["Java 17", "Spring Boot", "React", "FastAPI", "PyTorch", "MONAI", "PostgreSQL", "Generative AI"],
-      liveDemo: null,
+      liveDemo: "https://medisync-hos.ddns.net/",
       details: {
         problem: "Clinical diagnostic environments handle highly sensitive, multi-tenant datasets that require absolute security isolation. At the same time, practitioners need rapid access to computer-aided imaging classifications and clear, patient-friendly summaries to make critical decisions under pressure.",
         architecture: {
