@@ -54,9 +54,9 @@
         <button id="themeToggle" class="nav-btn icon-btn" title="Toggle Theme" aria-label="Toggle Theme">
           <i class="fa-solid fa-moon"></i>
         </button>
-        <button id="resumeBtn" class="nav-btn cta-btn" title="Download Resume">
+        <a id="resumeBtn" href="Abishek.pdf" download="Abishek.pdf" class="nav-btn cta-btn" title="Download Resume">
           <i class="fa-solid fa-download"></i><span>Resume</span>
-        </button>
+        </a>
         <button id="mobileMenuToggle" class="nav-btn icon-btn mobile-menu-btn" title="Toggle Menu" aria-label="Toggle Menu">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -87,6 +87,9 @@
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary bg-gradient-indigo">Explore Projects</a>
+            <a id="downloadResume" href="Abishek.pdf" download="Abishek.pdf" class="btn btn-secondary" title="Download Resume">
+              <i class="fa-solid fa-download"></i><span>Download CV</span>
+            </a>
             <a href="#contact" class="btn btn-secondary">Get In Touch</a>
           </div>
           <div class="hero-shortcuts">
@@ -173,6 +176,32 @@
                 <span class="metric-value">95+</span>
                 <span class="metric-label">Lighthouse Score</span>
               </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE DEV TERMINAL CARD -->
+        <div class="terminal-card-wrap" style="margin-top: 40px;">
+          <div class="terminal-card card frosted-glass">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">bash - visitor@abishek-a:~</div>
+              <div class="terminal-status"><span class="terminal-status-dot"></span> Online</div>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+              <div class="terminal-output" id="terminalOutput">
+                <div class="terminal-line text-muted">Initialize system shell v1.2.0...</div>
+                <div class="terminal-line text-muted">Connected to Abishek's Portfolio Terminal.</div>
+                <div class="terminal-line text-muted">Type <span class="accent-teal">help</span> to view all available commands.</div>
+                <div class="terminal-line">&nbsp;</div>
+              </div>
+              <form class="terminal-input-row" id="terminalForm">
+                <span class="terminal-prompt">visitor@abishek-a:~#</span>
+                <input type="text" id="terminalInput" class="terminal-field" autocomplete="off" placeholder="Type command here..." aria-label="Terminal Input">
+              </form>
             </div>
           </div>
         </div>

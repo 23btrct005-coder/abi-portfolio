@@ -45,6 +45,12 @@
   
     // 12. Programmatic Resume Download Flows
     initResumeDownload(config);
+
+    // 13. Dynamic SVG Fluid Wave Mesh
+    initFluidWaves();
+
+    // 14. Interactive Developer Console Card
+    initInteractiveTerminal(config);
   });
   
   /* ==========================================================================
@@ -716,24 +722,189 @@
      PROGRAMMATIC RESUME DOWNLOAD FLOWS
      ========================================================================== */
   function initResumeDownload(config) {
-    const downloadBtns = [
-      document.getElementById("resumeBtn"),
-      document.getElementById("downloadResume")
-    ];
-  
-    downloadBtns.forEach(btn => {
-      if (btn) {
-        btn.addEventListener("click", () => {
-          const fileName = config.profile.resumeFile;
-          
-          // Trigger programmatic browser download
-          const link = document.createElement("a");
-          link.href = fileName;
-          link.download = fileName;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        });
+    // Both resumeBtn and downloadResume are now native HTML5 <a> elements with the download attribute.
+    // Native browser downloading is extremely reliable and secure. No JS overrides needed!
+    console.log("Resume download hooks initialized natively.");
+  }
+
+  /* ==========================================================================
+     DYNAMIC SVG FLUID WAVE MESH
+     ========================================================================== */
+  function initFluidWaves() {
+    const wave1 = document.getElementById("wave1");
+    const wave2 = document.getElementById("wave2");
+    const joint1 = document.getElementById("joint1");
+    const joint2 = document.getElementById("joint2");
+    const container = document.getElementById("visualContainer");
+    
+    if (!wave1 || !wave2) return;
+    
+    let time = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetOffset = 0;
+    let currentOffset = 0;
+    
+    if (container) {
+      container.addEventListener("mousemove", (e) => {
+        const rect = container.getBoundingClientRect();
+        mouseX = e.clientX - rect.left - rect.width / 2;
+        mouseY = e.clientY - rect.top - rect.height / 2;
+        // Map distance from center to a magnetic offset factor
+        targetOffset = Math.sqrt(mouseX * mouseX + mouseY * mouseY) * 0.15;
+      });
+      container.addEventListener("mouseleave", () => {
+        targetOffset = 0;
+      });
+    }
+    
+    function animate() {
+      time += 0.02;
+      
+      // Interpolate current magnetic offset
+      currentOffset += (targetOffset - currentOffset) * 0.1;
+      
+      // Compute sine wave control coordinates
+      const h1 = 120 + Math.sin(time) * 30 + Math.cos(time * 0.5) * 10 + currentOffset * 0.2;
+      const h2 = 280 + Math.cos(time * 0.8) * 30 + Math.sin(time * 0.4) * 15 - currentOffset * 0.2;
+      
+      // Modify wave control paths
+      wave1.setAttribute("d", `M 50,200 Q 125,${h1} 200,200 T 350,200`);
+      wave2.setAttribute("d", `M 50,200 Q 125,${h2} 200,200 T 350,200`);
+      
+      // Move joints
+      if (joint1 && joint2) {
+        joint1.setAttribute("y1", (h1 + 200) / 2 - 20);
+        joint1.setAttribute("y2", (h1 + 200) / 2 + 20);
+        joint2.setAttribute("y1", (h2 + 200) / 2 - 20);
+        joint2.setAttribute("y2", (h2 + 200) / 2 + 20);
       }
+      
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+  /* ==========================================================================
+     INTERACTIVE DEVELOPER CONSOLE CARD
+     ========================================================================== */
+  function initInteractiveTerminal(config) {
+    const form = document.getElementById("terminalForm");
+    const input = document.getElementById("terminalInput");
+    const output = document.getElementById("terminalOutput");
+    const body = document.getElementById("terminalBody");
+    
+    if (!form || !input || !output) return;
+    
+    // Command database
+    const commands = {
+      help: () => {
+        return [
+          "Available Commands:",
+          "  <span class='accent-teal'>about</span>     - Display professional summary & background",
+          "  <span class='accent-teal'>skills</span>    - List engineering & UI/UX proficiencies",
+          "  <span class='accent-teal'>projects</span>  - Show deep-technical engineering builds",
+          "  <span class='accent-teal'>contact</span>   - Print digital channels and email coordinate details",
+          "  <span class='accent-teal'>resume</span>    - Open/Download official resume (Abishek.pdf)",
+          "  <span class='accent-teal'>clear</span>     - Wipe console screen buffer log"
+        ];
+      },
+      about: () => {
+        return [
+          "<b>Abishek A</b> - Software Engineer & UI/UX Designer",
+          "----------------------------------------------",
+          config.profile.bio[0],
+          "",
+          `Current Location: ${config.profile.location}`,
+          `Active Campus:    ${config.education[0].institution} (${config.education[0].degree})`,
+          `Major GPA Focus:  Computer Science & Software Systems`
+        ];
+      },
+      skills: () => {
+        const categories = Object.keys(config.skills);
+        let lines = ["Technical Proficiencies Matrix:", "--------------------------------"];
+        
+        categories.forEach(cat => {
+          if (cat === "languages") return; // handle separately
+          const skillsList = config.skills[cat].map(s => s.name).join(", ");
+          const prettyCat = cat.charAt(0).toUpperCase() + cat.slice(1);
+          lines.push(`  <span class='accent-indigo'>${prettyCat}:</span> ${skillsList}`);
+        });
+        
+        return lines;
+      },
+      projects: () => {
+        let lines = ["Featured Engineering Deployments:", "----------------------------------"];
+        config.projects.forEach(p => {
+          lines.push(`🚀 <b>${p.title}</b> - ${p.subTitle}`);
+          lines.push(`   Stack:    ${p.tag}`);
+          lines.push(`   Deliverable: ${p.bullets[0]}`);
+          if (p.liveDemo) {
+            lines.push(`   Live:     <a href="${p.liveDemo}" target="_blank" style="color:var(--accent-teal);text-decoration:underline;">${p.liveDemo}</a>`);
+          }
+          lines.push("");
+        });
+        return lines;
+      },
+      contact: () => {
+        return [
+          "Coordinate Pipelines:",
+          "---------------------",
+          `  Email:    <a href="mailto:${config.profile.email}" style="color:var(--accent-teal);text-decoration:underline;">${config.profile.email}</a>`,
+          `  Phone:    ${config.profile.phone}`,
+          `  LinkedIn: <a href="${config.profile.linkedin}" target="_blank" style="color:var(--accent-teal);text-decoration:underline;">${config.profile.linkedin}</a>`,
+          `  GitHub:   <a href="${config.profile.github}" target="_blank" style="color:var(--accent-teal);text-decoration:underline;">${config.profile.github}</a>`
+        ];
+      },
+      resume: () => {
+        // Trigger actual download programmatically
+        const link = document.createElement("a");
+        link.href = config.profile.resumeFile;
+        link.download = config.profile.resumeFile;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        return [
+          "🔄 Initiating download for Abishek.pdf...",
+          "Download stream opened successfully."
+        ];
+      }
+    };
+    
+    // Form submit listener
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const rawInput = input.value.trim();
+      const cmd = rawInput.toLowerCase();
+      
+      // Add command line to log
+      appendLine(`visitor@abishek-a:~# ${rawInput}`);
+      
+      if (cmd !== "") {
+        if (cmd === "clear") {
+          output.innerHTML = "";
+        } else if (commands[cmd]) {
+          const lines = commands[cmd]();
+          lines.forEach(line => appendLine(line));
+        } else {
+          appendLine(`sh: command not found: ${rawInput}. Type <span class='accent-teal'>help</span> to view commands.`);
+        }
+      }
+      
+      input.value = "";
+      
+      // Auto scroll to bottom of terminal screen
+      setTimeout(() => {
+        body.scrollTop = body.scrollHeight;
+      }, 20);
     });
+    
+    function appendLine(text) {
+      const div = document.createElement("div");
+      div.className = "terminal-line";
+      div.innerHTML = text;
+      output.appendChild(div);
+    }
   }
