@@ -56,8 +56,8 @@ const PortfolioConfig = {
       period: "Apr 2025 - Jul 2025",
       location: "Bengaluru, India",
       bullets: [
-        "Designed and implemented intuitive UI/UX workflows for a Virtual AI web platform, resulting in a 20% increase in user engagement metrics.",
-        "Developed user-friendly interfaces for a Fleet Delivery management system, ensuring smooth navigation and operational efficiency for end-users.",
+        "Designed and implemented intuitive UI/UX workflows for the <a href='https://www.figma.com/design/qpAtxea4sM2YSVjW4zfChE/Project-1--Web-App-for-a-Virtual-AR-Try-On?t=cgOB8s7aA3VEaGxF-0' target='_blank' style='color:var(--accent-teal);text-decoration:underline;'>Virtual AR Try-On Platform (AuraAR)</a>, resulting in a 20% increase in user engagement metrics.",
+        "Developed user-friendly interfaces for the <a href='https://www.figma.com/design/eXPyzeA5RPA0zaZvHLRGDO/Fleet-Management---Delivery-Tracking?node-id=0-1&p=f&t=z47clMuiE3qmP3W0-0' target='_blank' style='color:var(--accent-teal);text-decoration:underline;'>Fleet Operations & Delivery Tracking System (FleetFlow)</a>, ensuring smooth navigation and operational efficiency for end-users.",
         "Produced cross-platform wireframes, interactive prototypes, and high-fidelity mockups in Figma, reducing front-end development iterations by 15%.",
         "Conducted comprehensive user research and usability testing, gathering actionable feedback to refine design solutions and align functionality with back-end requirements.",
         "Collaborated with cross-functional engineering and product teams to safeguard visual consistency and accessibility standards across multiple digital products."
