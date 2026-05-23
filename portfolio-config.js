@@ -246,6 +246,38 @@ const PortfolioConfig = {
           ]
         }
       }
+    },
+    {
+      id: "artryon",
+      title: "AuraAR",
+      subTitle: "Virtual AR Try-On Platform",
+      tag: "Figma / UI/UX Design / AR Platform",
+      metrics: {
+        engagement: "+20% Interaction",
+        rendering: "<1.5s Rendering",
+        components: "50+ Figma Tokens"
+      },
+      bullets: [
+        "Designed high-fidelity interactive Figma prototype interfaces for a next-gen Virtual AR Try-On platform, enabling real-time item overlays.",
+        "Designed intuitive user-flows with face-mesh tracking cues, contributing to a 20% surge in customer engagement metrics.",
+        "Crafted minimalist layouts displaying dynamic catalog selectors, sizing adjusters, and unified high-contrast toggles."
+      ],
+      tags: ["Figma UI/UX", "AR Face Mesh", "Catalog Selectors", "High-Fi Prototype", "Design Systems", "User Flows"],
+      liveDemo: "https://www.figma.com/design/qpAtxea4sM2YSVjW4zfChE/Project-1--Web-App-for-a-Virtual-AR-Try-On?t=cgOB8s7aA3VEaGxF-0",
+      details: {
+        problem: "Online consumers often face purchase uncertainty, which results in high cart abandonment and high product returns. The goal of this project was to design an intuitive, high-fidelity browser-based AR shopping experience that seamlessly overlays items on real-time face and hand meshes.",
+        architecture: {
+          nodes: [
+            { id: "fe", label: "AR Viewport Grid", desc: "Interactive camera view displaying real-time 3D face mesh overlays and tracking indicators." },
+            { id: "catalog", label: "Product Catalog Slider", desc: "Sleek selector menu displaying active jewelry, eyewear, and apparel variants." },
+            { id: "checkout", label: "Customizer & Order Screen", desc: "Instant sizing calculators and streamlined order checkout pathways." }
+          ],
+          connections: [
+            { from: "fe", to: "catalog", label: "AR Sync Overlay" },
+            { from: "catalog", to: "checkout", label: "Direct Selection Checkout" }
+          ]
+        }
+      }
     }
   ],
 

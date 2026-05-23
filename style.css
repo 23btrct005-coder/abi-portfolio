@@ -1493,6 +1493,12 @@
     color: #a855f7;
     border: 1px solid rgba(168, 85, 247, 0.15);
   }
+
+  .pc-artryon {
+    background-color: rgba(244, 63, 94, 0.08);
+    color: #f43f5e;
+    border: 1px solid rgba(244, 63, 94, 0.15);
+  }
   
   .project-card-body {
     padding: 16px 28px 24px;

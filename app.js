@@ -155,6 +155,7 @@
         if (proj.id === "medisync") styleClass = "pc-medisync";
         if (proj.id === "campusbus") styleClass = "pc-campusbus";
         if (proj.id === "fleetmanagement") styleClass = "pc-fleetmanagement";
+        if (proj.id === "artryon") styleClass = "pc-artryon";
   
         // Live link button if present
         let liveBtnHtml = "";
